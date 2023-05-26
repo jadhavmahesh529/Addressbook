@@ -4,30 +4,25 @@
     {
         static void Main(string[] args)
         {
-
-            Addressbook a = new Addressbook();
+            Addressbook Addressbook = new Addressbook();
             while (true)
-
             {
-                Console.WriteLine("select\n1)Create Contact\n2");
+                Console.WriteLine("select \n1)create contact\n2)display\n3)edit contact");
                 int option = Convert.ToInt32(Console.ReadLine());
-
-
-
 
                 switch (option)
                 {
                     case 1:
-                        a.AddContact();
+                        Addressbook.AddContact();
                         break;
-
                     case 2:
-                        a.Display();
+                        Addressbook.Display();
                         break;
-
-
-
+                    case 3:
+                        Addressbook.Editcontact();
+                        break;
                 }
+        
             }
         }
     }

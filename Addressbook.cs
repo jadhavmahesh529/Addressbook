@@ -54,6 +54,10 @@ namespace Basicdemo
             }
         }
 
+        internal void Editcontact()
+        {
+            throw new NotImplementedException();
+        }
     }    
          
 }
