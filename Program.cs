@@ -21,6 +21,9 @@
                     case 3:
                         Addressbook.Editcontact();
                         break;
+                    case 4:
+                        Addressbook.DeleteContactUsingName();
+                        break;
                 }
         
             }

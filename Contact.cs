@@ -11,10 +11,10 @@ namespace Basicdemo
         public string Firstname { get; set; }
         public string Lastname { get; set; }
         public string Address { get; set; }
-        public string city { get; set; }
+        public string City { get; set; }
         public string State { get; set; }
-        public string Zip { get; set; }
-        public string Phonenumber { get; set; }
+        public int Zip { get; set; }
+        public long Phonenumber { get; set; }
         public string email { get; set; }
 
     }
