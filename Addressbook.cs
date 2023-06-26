@@ -171,8 +171,20 @@ namespace Basicdemo
             {
                 dictionary[key] = new List<Contact> { contact };
             }
+
         }
-   
+        public int GetContactCountByCity(string city)
+        {
+            return contactsByCity.Values.SelectMany(list => list)
+                                        .Count(contact => contact.City.Equals(city, StringComparison.OrdinalIgnoreCase));
+        }
+
+        public int GetContactCountByState(string state)
+        {
+            return contactsByState.Values.SelectMany(list => list)
+                                        .Count(contact => contact.State.Equals(state, StringComparison.OrdinalIgnoreCase));
+        }
+
     }
 
 }

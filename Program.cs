@@ -106,6 +106,21 @@
                         }
 
                         break;
+
+                    case 8:
+                        Console.WriteLine("Enter city to get contact count:");
+                        string City = Console.ReadLine();
+                        int contactCountByCity = Addressbook.GetContactCountByCity(City);
+                        Console.WriteLine($"Contact count in {City}: {contactCountByCity}");
+                        break;
+                    case 9:
+                        Console.WriteLine("Enter state to get contact count:");
+                        string State = Console.ReadLine();
+                        int contactCountByState = Addressbook.GetContactCountByState(State);
+                        Console.WriteLine($"Contact count in {State}: {contactCountByState}");
+                        break;
+
+
                 }
             }
 
