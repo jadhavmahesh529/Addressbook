@@ -24,9 +24,40 @@
                     case 4:
                         Addressbook.DeleteContactUsingName();
                         break;
+                    case 5:
+                        Console.WriteLine("Enter city or state to search:");
+                        string cityOrState = Console.ReadLine();
+                        List<Contact> searchResults = Addressbook.SearchByCityOrState(cityOrState);
+
+                        if (searchResults.Count > 0)
+                        {
+                            Console.WriteLine("Search results:");
+                            foreach (var contact in searchResults)
+                            {
+                                Console.WriteLine("Firstname--" + contact.Firstname);
+                                Console.WriteLine("Lastname--" + contact.Lastname);
+                                Console.WriteLine("Address--" + contact.Address);
+                                Console.WriteLine("City--" + contact.City);
+                                Console.WriteLine("State--" + contact.State);
+                                Console.WriteLine("Zip--" + contact.Zip);
+                                Console.WriteLine("Phonenumber--" + contact.Phonenumber);
+                                Console.WriteLine("email--" + contact.email);
+                                Console.WriteLine();
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("No contacts found in the specified city or state.");
+                        }
+
+                        break;
+
+
                 }
-        
             }
         }
+        
+            
+        
     }
 }

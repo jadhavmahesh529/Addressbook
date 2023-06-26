@@ -143,8 +143,17 @@ namespace Basicdemo
             {
                 Console.WriteLine("Contact not found!");
             }
-
+            
         }
-    }    
-         
+        public List<Contact> SearchByCityOrState(string cityOrState)
+        {
+            List<Contact> searchResults = con.FindAll(contact =>
+                contact.City.Equals(cityOrState, StringComparison.OrdinalIgnoreCase) ||
+                contact.State.Equals(cityOrState, StringComparison.OrdinalIgnoreCase));
+
+            return searchResults;
+        }
+
+    }
+
 }
