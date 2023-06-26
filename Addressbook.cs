@@ -11,6 +11,9 @@ namespace Basicdemo
     internal class Addressbook
     {
         List<Contact> con = new List<Contact>();
+        Dictionary<string, List<Contact>> contactsByCity = new Dictionary<string, List<Contact>>();
+        Dictionary<string, List<Contact>> contactsByState = new Dictionary<string, List<Contact>>();
+
         public void AddContact()
         {
             Contact contact = new Contact();
@@ -33,7 +36,8 @@ namespace Basicdemo
 
 
             con.Add(contact);
-
+            AddToDictionary(contact.City, contact, contactsByCity);
+            AddToDictionary(contact.State, contact, contactsByState);
 
         }
         public void Display()
@@ -137,13 +141,13 @@ namespace Basicdemo
             if (person != null)
             {
                 con.Remove(person);
-                Console.WriteLine("Contact deleted successfully!");
+                Console.WriteLine("Contact deleted successfully");
             }
             else
             {
-                Console.WriteLine("Contact not found!");
+                Console.WriteLine("Contact not found");
             }
-            
+
         }
         public List<Contact> SearchByCityOrState(string cityOrState)
         {
@@ -153,7 +157,22 @@ namespace Basicdemo
 
             return searchResults;
         }
+        public List<Contact> GetContactsByCity(string city) => contactsByCity.TryGetValue(city, out var contactsInCity) ? contactsInCity : new List<Contact>();
 
+        public List<Contact> GetContactsByState(string state) => contactsByState.TryGetValue(state, out var contactsInState) ? contactsInState : new List<Contact>();
+
+        private void AddToDictionary(string key, Contact contact, Dictionary<string, List<Contact>> dictionary)
+        {
+            if (dictionary.ContainsKey(key))
+            {
+                dictionary[key].Add(contact);
+            }
+            else
+            {
+                dictionary[key] = new List<Contact> { contact };
+            }
+        }
+   
     }
 
 }
